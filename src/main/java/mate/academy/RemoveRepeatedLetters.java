@@ -10,6 +10,10 @@ public class RemoveRepeatedLetters {
         for (char letter : str.toCharArray()) {
             setOfLetters.add(letter);
         }
-        return setOfLetters.toString();
+        StringBuilder sb = new StringBuilder();
+        for (char letter : setOfLetters) {
+            sb.append(letter);
+        }
+        return sb.toString();
     }
 }

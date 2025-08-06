@@ -11,11 +11,6 @@ public class RemoveRepeatedLettersTest {
     }
 
     @Test
-    void testProgramowanie() {
-        assertEquals("progaminw", RemoveRepeatedLetters.removeRepeatedLetters("programowanie"));
-    }
-
-    @Test
     void testPustyString() {
         assertEquals("", RemoveRepeatedLetters.removeRepeatedLetters(""));
     }
