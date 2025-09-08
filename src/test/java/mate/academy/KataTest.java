@@ -1,16 +1,14 @@
 package mate.academy;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class KataTest {
-    @Test
-    public void sampleTests() {
-        assertArrayEquals(new int[] {1,3,2,5,3}, Kata.digitize(35231));
-        assertArrayEquals(new int[] {0}, Kata.digitize(0));
-        assertArrayEquals(new int[] {7,5,3,2,8,5,3,2}, Kata.digitize(23582357));
-        assertArrayEquals(new int[] {8,3,7,4,6,7,4,8,9}, Kata.digitize(984764738));
-        assertArrayEquals(new int[] {0,2,9,3,9,8,2,6,7,5,4}, Kata.digitize(45762893920L));
-        assertArrayEquals(new int[] {4,9,3,8,3,8,2,0,7,8,4,5}, Kata.digitize(548702838394L));
+    @Test public void testSomething() {
+        assertEquals("8j8mBliB8gimjB8B8jlB", Kata.noSpace("8 j 8   mBliB8g  imjB8B8  jl  B"));
+        assertEquals("88Bifk8hB8BB8BBBB888chl8BhBfd", Kata.noSpace("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd"));
+        assertEquals("8aaaaaddddr", Kata.noSpace("8aaaaa dddd r     "));
+        assertEquals("jfBmgklf8hg88lbe8", Kata.noSpace("jfBm  gk lf8hg  88lbe8 "));
+        assertEquals("8jaam", Kata.noSpace("8j aam"));
     }
 }
