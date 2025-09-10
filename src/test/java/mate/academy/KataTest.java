@@ -1,14 +1,43 @@
 package mate.academy;
 
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.*;
 
-public class KataTest {
-    @Test public void testSomething() {
-        assertEquals("8j8mBliB8gimjB8B8jlB", Kata.noSpace("8 j 8   mBliB8g  imjB8B8  jl  B"));
-        assertEquals("88Bifk8hB8BB8BBBB888chl8BhBfd", Kata.noSpace("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd"));
-        assertEquals("8aaaaaddddr", Kata.noSpace("8aaaaa dddd r     "));
-        assertEquals("jfBmgklf8hg88lbe8", Kata.noSpace("jfBm  gk lf8hg  88lbe8 "));
-        assertEquals("8jaam", Kata.noSpace("8j aam"));
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class KataTest {
+
+    @Test
+    @Order(1)
+    void downcase() {
+        String[] strings = new String[]{"jo", "nelson", "jurie"};
+        assertArrayEquals(new String[]{"Jo", "Nelson", "Jurie"}, Kata.capMe(strings), "For input: [\"jo\", \"nelson\", \"jurie\"]");
+    }
+
+    @Test
+    @Order(2)
+    void caps() {
+        String[] strings = new String[]{"OZZA", "ARRA", "AZZA"};
+        assertArrayEquals(new String[]{"Ozza", "Arra", "Azza"}, Kata.capMe(strings), "For input: [\"OZZA\", \"ARRA\", \"AZZA\"]");
+    }
+
+    @Test
+    @Order(3)
+    void different() {
+        String[] strings = new String[]{"Ror", "NOR", "xor"};
+        assertArrayEquals(new String[]{"Ror", "Nor", "Xor"}, Kata.capMe(strings), "For input: [\"Ror\", \"NOR\", \"xor\"]");
+    }
+
+    @Test
+    @Order(4)
+    void emptyArray() {
+        String[] strings = new String[0];
+        assertArrayEquals(new String[0], Kata.capMe(strings), "For input: []");
+    }
+
+    @Test
+    @Order(5)
+    void emptyStrings() {
+        String[] strings = new String[]{"", "", ""};
+        assertArrayEquals(new String[]{"", "", ""}, Kata.capMe(strings), "For input: [\"\", \"\", \"\"]");
     }
 }
