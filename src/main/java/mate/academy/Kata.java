@@ -1,14 +1,15 @@
 package mate.academy;
 
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
-class Kata {
-    public static long sumTwoSmallestNumbers(long[] numbers) {
-        Queue<Long> queue = new PriorityQueue<>();
-        for (int i = 0; i < numbers.length; i++) {
-            queue.add(numbers[i]);
+public class Kata {
+
+    public static Object[] removeEveryOther(Object[] arr) {
+        List<Object> result = new ArrayList<>();
+        for (int i = 0; i < arr.length; i += 2) {
+            result.add(arr[i]);
         }
-        return queue.poll() + queue.poll();
+        return result.toArray();
     }
 }
