@@ -1,7 +1,12 @@
 package mate.academy;
 
 public class Kata {
-    public static boolean solution(String str, String ending) {
-        return str.endsWith(ending);
+    public int sumDigits(String number) {
+        char[] chars = number.toCharArray();
+        int sum = 0;
+        for (char c : chars) {
+            sum += Character.getNumericValue(c);
+        }
+        return sum;
     }
 }
