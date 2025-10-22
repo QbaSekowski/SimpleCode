@@ -9,11 +9,10 @@ public class Kata {
         for (char c : parenStr.toCharArray()) {
             if (c == '(') {
                 stack.push(c);
-            }
-            if (c == ')' && !stack.isEmpty() && stack.peek() == '(') {
+            } else if (c == ')') {
+                if (stack.isEmpty()) return false;
                 stack.pop();
             }
-            if (c == ')' && stack.isEmpty()) return false;
         }
         return stack.isEmpty();
     }
