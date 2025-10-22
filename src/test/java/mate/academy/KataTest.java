@@ -1,31 +1,36 @@
 package mate.academy;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import java.util.concurrent.atomic.AtomicReference;
 
-// TODO: Replace examples and use TDD development by writing your own tests
+// TODO: Replace examples and use TDD by writing your own tests
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class KataTest {
-    @DisplayName("Test true") @Order(1)
-    @Test void testTrue() {
-        AtomicReference<String> actual = new AtomicReference<>("no function");
-        Kata._if(true, () -> actual.set("true function"), () -> actual.set("false function"));
-        assertEquals("true function", actual.get());
+    @Test @DisplayName("Should return true for valid parentheses")
+    void validCases() {
+        runTest(true, "()");
+        runTest(true, "((()))");
+        runTest(true, "()()()");
+        runTest(true, "(()())()");
+        runTest(true, "()(())((()))(())()");
     }
 
-    @DisplayName("Test false") @Order(2)
-    @Test void testFalse() {
-        AtomicReference<String> actual = new AtomicReference<>("no function");
-        Kata._if(false, () -> actual.set("true function"), () -> actual.set("false function"));
-        assertEquals("false function", actual.get());
+    @Test @DisplayName("Should return false for invalid parentheses")
+    void invalidCases() {
+        runTest(false, ")(");
+        runTest(false, "()()(");
+        runTest(false, "((())");
+        runTest(false, "())(()");
+        runTest(false, ")()");
+        runTest(false, ")");
     }
 
-    @DisplayName("Test falsy value (null)") @Order(3)
-    @Test void testFalsy() {
-        AtomicReference<String> actual = new AtomicReference<>("no function");
-        Kata._if(null, () -> actual.set("true function"), () -> actual.set("false function"));
-        assertEquals("false function", actual.get());
+    @Test @DisplayName("Should return true for empty strings")
+    void emptyString() {
+        runTest(true, "");
+    }
+    private void runTest(boolean expected, String input) {
+        assertEquals(expected, Kata.validParentheses(input), "Test failed for input \""+input+"\"");
     }
 }
