@@ -1,27 +1,44 @@
 package mate.academy;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import java.util.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import org.junit.runners.JUnit4;
 
-class SolutionTest {
+public class SolutionTest {
+
     @Test
-    public void sampleTests() {
-        doTest(new int[]{1, 3, 9, 4}, "no");
-        doTest(new int[]{4, 3, 1, 9}, "no");
-        doTest(new int[]{1, 2}, "yes, ascending");
-        doTest(new int[]{2, 1}, "yes, descending");
-        doTest(new int[]{1, 2, 3, 4}, "yes, ascending");
-        doTest(new int[]{1, 1, 2, 3}, "yes, ascending");
-        doTest(new int[]{1, 2, 3, 3}, "yes, ascending");
-        doTest(new int[]{4, 3, 2, 1}, "yes, descending");
-        doTest(new int[]{3, 3, 2, 1}, "yes, descending");
-        doTest(new int[]{3, 2, 1, 1}, "yes, descending");
+    public void testTwoWords() {
+        assertEquals("TestCase", Solution.camelCase("test case"));
     }
 
-    private static void doTest(int[] input, String expected) {
-        String message = String.format("for array = %s\n", Arrays.toString(input));
-        String actual = Solution.isSortedAndHow(input);
-        assertEquals(expected, actual, message);
+    @Test
+    public void testThreeWords() {
+        assertEquals("CamelCaseMethod", Solution.camelCase("camel case method"));
     }
+
+    @Test
+    public void testLeadingSpace() {
+        assertEquals("CamelCaseWord", Solution.camelCase(" camel case word"));
+    }
+
+    @Test
+    public void testTrailingSpace() {
+        assertEquals("SayHello", Solution.camelCase("say hello "));
+    }
+
+    @Test
+    public void testSingleLetter() {
+        assertEquals("Z", Solution.camelCase("z"));
+    }
+
+    @Test
+    public void testTwoSpacesBetweenWords() {
+        assertEquals("AbC", Solution.camelCase("ab  c"));
+    }
+
+    @Test
+    public void testEmptyString() {
+        assertEquals("", Solution.camelCase(""));
+    }
+
 }

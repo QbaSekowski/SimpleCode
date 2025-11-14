@@ -1,23 +1,16 @@
 package mate.academy;
 
-class Solution {
-    public static String isSortedAndHow(int[] array) {
-        int desc = 0;
-        int asc = 0;
-        for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] >= array[i + 1]) {
-                desc++;
-            }
-            if (array[i] <= array[i + 1]) {
-                asc++;
+public class Solution {
+
+    public static String camelCase(String str) {
+        String[] array = str.split(" ");
+        for (int i = 0; i < array.length; i++) {
+            if (!array[i].isEmpty()) {
+                array[i] = array[i].substring(0, 1).toUpperCase()
+                        + array[i].substring(1).toLowerCase();
             }
         }
-        if (asc == array.length - 1) {
-            return "yes, ascending";
-        }
-        if (desc == array.length - 1) {
-            return "yes, descending";
-        }
-        return "no";
+        return String.join("", array);
     }
+
 }
