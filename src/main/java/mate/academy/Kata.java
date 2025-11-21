@@ -1,20 +1,19 @@
 package mate.academy;
 
-public class Kata {
-    public static String firstNonRepeatingLetter(String s){
-        if (s == null || s.isEmpty()) return "";
-        java.util.Map<String, Integer> counts = new java.util.HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            String ch = s.substring(i, i + 1).toLowerCase();
-            counts.put(ch, counts.getOrDefault(ch, 0) + 1);
-        }
-        for (int i = 0; i < s.length(); i++) {
-            String originalChar = s.substring(i, i + 1);
-            String lowerChar = originalChar.toLowerCase();
-            if (counts.get(lowerChar) == 1) {
-                return originalChar;
+class Kata {
+    static String alphabetPosition(String text) {
+        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+                'u', 'v', 'w', 'x', 'y', 'z'};
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            for (int j = 0; j < alphabet.length; j++) {
+                if (text.toLowerCase().charAt(i) == alphabet[j]) {
+                    sb.append(j + 1).append(" ");
+                    break;
+                }
             }
         }
-        return "";
+        return sb.toString().trim();
     }
 }
