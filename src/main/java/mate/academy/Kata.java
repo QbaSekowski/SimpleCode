@@ -1,23 +1,24 @@
 package mate.academy;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
 
 public class Kata {
-    private static int numberOfRepeatingLetters(String word) {
-        Map<Character, Integer> map = new HashMap<>();
-
-        for (char c : word.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+    public static String ArrayChallenge(String[] strArr) {
+        StringBuilder sb = new StringBuilder();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        while (!stack.isEmpty()) {
+            int idx = stack.pop();
+            if (idx >= strArr.length) continue;
+            String val = strArr[idx];
+            if (val.equals("#")) continue;
+            if (sb.length() > 0) sb.append(" ");
+            sb.append(val);
+            int right = 2 * idx + 2;
+            int left = 2 * idx + 1;
+            stack.push(right);
+            stack.push(left);
         }
-
-        int max = 1;
-        for (int value : map.values()) {
-            if (value > max) {
-                max = value;
-            }
-        }
-
-        return max;
+        return sb.toString();
     }
 }
