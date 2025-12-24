@@ -1,13 +1,19 @@
 package mate.academy;
 
-public class Kata{
+public class Kata
+{
+    public static int DontGiveMeFive(int start, int end)
+    {
+        int count = 0;
 
-    public static int grow(int[] x){
-        int result = 1;
-        for (int i = 0; i < x.length; i++) {
-            result *= x[i];
+        for (int i = start; i <= end; i++)
+        {
+            if (!Integer.toString(i).contains("5"))
+            {
+                count++;
+            }
         }
-        return result;
-    }
 
+        return count;
+    }
 }
