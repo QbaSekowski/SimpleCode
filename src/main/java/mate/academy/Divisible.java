@@ -5,9 +5,8 @@ public class Divisible {
         if (numbers.length <= 1) {
             return true;
         }
-        int n = numbers[0];
         for (int i = 1; i < numbers.length; i++) {
-            if (n % numbers[i] != 0) {
+            if (numbers[0] % numbers[i] != 0) {
                 return false;
             }
         }
