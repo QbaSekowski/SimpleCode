@@ -1,10 +1,21 @@
 package mate.academy;
 
-class Solution {
-    public static String solve(String s, int a, int b){
-        b = Math.min(b, s.length() - 1);
-        return s.substring(0, a)
-                + new StringBuilder(s.substring(a, b + 1)).reverse()
-                + s.substring(b + 1);
+public class Solution {
+    public static String solve(final String str) {
+        char[] chars = str.toCharArray();
+        int upperCaseCount = 0;
+        int lowerCaseCount = 0;
+        for (int i = 0; i < chars.length; i++) {
+            if (Character.isUpperCase(chars[i])) {
+                upperCaseCount++;
+            } else {
+                lowerCaseCount++;
+            }
+        }
+        if (upperCaseCount > lowerCaseCount) {
+            return str.toUpperCase();
+        } else {
+            return str.toLowerCase();
+        }
     }
 }

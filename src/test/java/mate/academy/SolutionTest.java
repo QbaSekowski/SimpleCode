@@ -4,13 +4,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.junit.runners.JUnit4;
 
-public class SolutionTest{
+public class SolutionTest {
     @Test
-    public void basicTests(){
-        assertEquals("cawedors", Solution.solve("codewars",1,5));
-        assertEquals("conuFsIgnid", Solution.solve("codingIsFun",2,100));
-        assertEquals("FuargorPlanoitcnmming", Solution.solve("FunctionalProgramming", 2,15));
-        assertEquals("vutsrqponmlkjihgfecbawxyz", Solution.solve("abcefghijklmnopqrstuvwxyz",0,20));
-        assertEquals("abcefvutsrqponmlkjihgwxyz", Solution.solve("abcefghijklmnopqrstuvwxyz",5,20));
+    public void BasicTests() {
+        assertEquals("code", Solution.solve("code"));
+        assertEquals("CODE", Solution.solve("CODe"));
+        assertEquals("code", Solution.solve("COde"));
+        assertEquals("code", Solution.solve("Code"));
+        assertEquals("", Solution.solve(""));
     }
 }
