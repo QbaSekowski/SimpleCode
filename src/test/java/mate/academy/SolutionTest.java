@@ -1,14 +1,28 @@
 package mate.academy;
 
 import org.junit.Test;
+import java.util.Arrays;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
-import org.junit.runners.JUnit4;
 
-public class SolutionTest{
-    @Test
-    public void basicTests(){
-        assertEquals("23:59",Solution.solve(new String[] {"14:51"}));
-        assertEquals("09:10",Solution.solve(new String[] {"21:14", "15:34", "14:51", "06:25", "15:30"}));
-        assertEquals("11:40",Solution.solve(new String[] {"23:00","04:22","18:05","06:24"}));
+public class SolutionTest {
+    @Test public void testList() {
+        final List<Integer> list = Arrays.asList(1, 2 ,3 ,4 ,5);
+        final int last = Solution.last(list);
+        assertEquals(5, last);
+    }
+    @Test public void testString() {
+        final String string = "abcde";
+        final char last = Solution.last(string);
+        assertEquals('e', last);
+    }
+    @Test public void testArgs() {
+        final int last = Solution.last(1, 2 ,3 ,4 ,5);
+        assertEquals(5, last);
+    }
+    @Test public void testArray() {
+        final Integer[] array = {1, 2 ,3 ,4 ,5};
+        final int last = Solution.last(array);
+        assertEquals(5, last);
     }
 }
